@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+    <header style="width: 100%">
+        Add Element
+    </header>
+    <span (click)="close()" class="close_button">X</span>
+</mat-toolbar>
+<div class="container main_container">
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label>Name :</label>
+            <input class="form-control" formControlName="name" type="text"
+                [ngClass]="{'is-invalid':form.get('name').touched && form.get('name').invalid}" required />
+            <div class="invalid-feedback">
+                <div>Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Weight :</label>
+            <input class="form-control" type="number" formControlName="Weight"
+                [ngClass]="{'is-invalid':form.get('Weight').touched && form.get('Weight').invalid}" required />
+            <div class="invalid-feedback">
+                <div>Weight is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Symbol :</label>
+            <input class="form-control" formControlName="Symbol" type="text"
+                [ngClass]="{'is-invalid':form.get('Symbol').touched && form.get('Symbol').invalid}" required />
+            <div class="invalid-feedback">
+                <div>Symbol is required</div>
+            </div>
+        </div>
+        <div class="Submit_button">
+            <button mat-raised-button [disabled]="!form.valid" (click)="onSubmit()" class="submit">Submit</button>
+        </div>
+    </form>
+</div>

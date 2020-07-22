@@ -1,0 +1,27 @@
+.container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+}
+.card{
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.input_fields{
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.labels{
+    text-align: left;
+}
+.invalid-feedback{
+    text-align: left;
+}
+.mat-raised-button.mat-primary[disabled]{
+    background-color: #3F51B5;
+    color: white;
+ }
+ button:disabled {
+    cursor: not-allowed;
+  }

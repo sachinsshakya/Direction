@@ -1,0 +1,35 @@
+<div class="bgimg">
+  <mat-card class="login-card">
+    <img src="assets/images/login.png" class="login-image">
+    <h2>user login</h2>
+    <form [formGroup]="loginform" (ngSubmit)="loginform.valid">
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="email" placeholder="E-Mail"
+          [ngClass]="{'is-invalid':loginform.get('email').touched && loginform.get('email').invalid}" required />
+        <div *ngIf="loginform.get('email').touched && loginform.get('email').invalid" class="invalid-feedback">
+          <div *ngIf="loginform.get('email').errors.required">E-mail is required</div>
+          <div *ngIf="loginform.get('email').errors.email">Please enter a valid Email</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" formControlName="password" placeholder="Password" minlength="8"
+          maxlength="16"
+          [ngClass]="{'is-invalid':loginform.get('password').touched && loginform.get('password').invalid}" required />
+        <div *ngIf="loginform.get('password').touched && loginform.get('password').invalid" class="invalid-feedback">
+          <div *ngIf="loginform.get('password').errors.required">password is required</div>
+          <div *ngIf="loginform.get('password').errors.minlength">Password must be atleast 8 charactor</div>
+        </div>
+      </div>
+      <div style="color: white;">
+        <mat-checkbox (change)="ischecked($event)">Remember me!</mat-checkbox>
+      </div>
+      <button mat-raised-button color="primary" [disabled]="!loginform.valid " class="loginbutton "
+        (click)="onSubmit()">Login</button>
+      <br>
+      <br>
+      <div class="register">
+        <a mat-button color="primary" style="font-family: 'Cinzel', serif;" (click)="register()">Register Here</a>
+      </div>
+    </form>
+  </mat-card>
+</div>

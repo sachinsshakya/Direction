@@ -1,0 +1,56 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 m-auto">
+			<div class="contact-form">
+				<h1>Contact Us</h1>
+				<p class="hint-text">We'd love to hear from you, please drop us a line if you've any query.</p>
+				<form [formGroup]="form">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="inputFirstName">First Name</label>
+								<input type="text" class="form-control" formControlName="first_name" id="inputFirstName"
+									[ngClass]="{'is-invalid':form.get('first_name').touched && form.get('first_name').invalid}"
+									required>
+								<div class="invalid-feedback">
+									<div>First name is required</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="inputLastName">Last Name</label>
+								<input type="text" class="form-control" formControlName="last_name" id="inputLastName"
+									[ngClass]="{'is-invalid':form.get('last_name').touched && form.get('last_name').invalid}"
+									required>
+								<div class="invalid-feedback">
+									<div>Last name is required</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputEmail">Email Address</label>
+						<input type="email" class="form-control" formControlName="email" id="inputEmail"
+							[ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}"
+							required>
+						<div class="invalid-feedback">
+							<div>E-Mail is required</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputMessage">Message</label>
+						<textarea class="form-control" id="inputMessage" rows="3" formControlName="message"
+							[ngClass]="{'is-invalid':form.get('message').touched && form.get('message').invalid}"
+							required>
+						</textarea>
+						<div class="invalid-feedback">
+							<div>Message is required</div>
+						</div>
+					</div>
+					<input type="submit" class="btn btn-primary" (click)="onSubmit()" value="Submit">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

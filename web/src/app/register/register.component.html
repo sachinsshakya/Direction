@@ -1,0 +1,57 @@
+<div class="bgimg">
+  <mat-card class="register-card">
+    <img src="assets/images/login.png" class="login-image">
+    <h2>user registration</h2>
+    <form name="form" [formGroup]="form">
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="username" placeholder="Username"
+          [ngClass]="{'is-invalid':form.get('username').touched && form.get('username').invalid}" required />
+        <div class="invalid-feedback">
+          <div>Username is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="email" placeholder="E-Mail"
+          [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}" />
+        <div *ngIf="form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
+          <div *ngIf="form.get('email').errors.required">Email Name is required</div>
+          <div *ngIf="form.get('email').errors.email">Email must be a valid email Address</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" formControlName="password" placeholder="Password" minlength="8" maxlength="16"
+          [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" />
+        <div *ngIf="form.get('password').touched && form.get('password').invalid" class="invalid-feedback">
+          <div *ngIf="form.get('password').errors.required">Password is required</div>
+          <div *ngIf="form.get('password').errors.minlength">Password must be atleast of 8 charactors</div>
+          <div *ngIf="form.get('password').errors.maxlength">Password must be of max 16 charactors</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" formControlName="cpassword" placeholder="Confirm Password"
+          [ngClass]="{'is-invalid':form.get('cpassword').touched && form.get('cpassword').invalid}" />
+        <div *ngIf="form.get('cpassword').touched && form.get('cpassword').invalid" class="invalid-feedback">
+          <div *ngIf="form.get('cpassword').errors.required">cpassword is required</div>
+
+          <div *ngIf="this.form.controls['cpassword'].value && this.form.controls['cpassword'].value.length > 1 ">
+            <div [hidden]="form.get('cpassword').valid || form.get('cpassword').pristine">
+              <small class="text-danger" style="font-size: 13px;">
+                Password mismatch
+              </small>
+            </div>
+          </div>
+        </div>
+        <br>
+        <button mat-raised-button [disabled]="form.invalid" style="width: 100%;font-family: 'Cinzel', serif;" color="primary"
+          (click)="onSubmit()">Register</button>
+        <br>
+        <br>
+        <div>
+          <div class="register">
+            <a mat-button color="primary" style="font-family: 'Cinzel', serif;" routerLink="/login" routerLinkActive="active">Login Here</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,165 @@
+<div class="container">
+    <mat-card class="card">
+        <h1>Profile</h1>
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Personal data
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type your Personal Details
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <form name="form" [formGroup]="form">
+                    <div class="row input_fields">
+                        <div class="col-3 labels">
+                            Username
+                        </div>
+                        <div class="col-9 form-group">
+                            <input type="text" class="form-control" formControlName="username"
+                                [ngClass]="{'is-invalid':form.get('username').touched && form.get('username').invalid}"
+                                required />
+                            <div class="invalid-feedback">
+                                <div>Username is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row input_fields">
+                        <div class="col-3 labels">
+                            E-Mail
+                        </div>
+                        <div class="form-group col-9">
+                            <input type="text" class="form-control" formControlName="email"
+                                [ngClass]="{'is-invalid':form.get('email').touched && form.gett('email').invalid}" />
+                            <div *ngIf="form.get('email').touched && form.get('email').invalid"
+                                class="invalid-feedback">
+                                <div *ngIf="form.get('email').errors.required">Email Name is required</div>
+                                <div *ngIf="form.get('email').errors.email">Email must be a valid email Address</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row input_fields">
+                        <div class="col-3 labels">
+                            Address
+                        </div>
+                        <div class="col-9 form-group">
+                            <input type="text" class="form-control" formControlName="address"
+                                [ngClass]="{'is-invalid':form.get('address').touched && form.get('address').invalid}"
+                                required />
+                            <div class="invalid-feedback">
+                                <div>Address is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row input_fields">
+                        <div class="col-3 labels">
+                            Pin-Code
+                        </div>
+                        <div class="col-9 form-group">
+                            <input type="text" class="form-control" formControlName="pin" maxLength="6"
+                                [ngClass]="{'is-invalid':form.get('pin').touched && form.get('pin').invalid}"
+                                required />
+                            <div *ngIf="form.get('pin').touched && form.get('pin').invalid" class="invalid-feedback">
+                                <div *ngIf="form.get('pin').errors.required">Pin-Code is required</div>
+                                <div *ngIf="form.get('pin').errors.minlength">Pin-Code must be atleast of 6 charactors
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row input_fields">
+                        <div class="col-3 labels">
+                            Phone
+                        </div>
+                        <div class="col-9 form-group">
+                            <input type="text" class="form-control" formControlName="phone" maxLength="10"
+                                [ngClass]="{'is-invalid':form.get('phone').touched && form.get('phone').invalid}"
+                                required />
+                            <div *ngIf="form.get('phone').touched && form.get('phone').invalid"
+                                class="invalid-feedback">
+                                <div *ngIf="form.get('phone').errors.required">Phone is required</div>
+                                <div *ngIf="form.get('phone').errors.minlength">Phone must be atleast of 10 charactors
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--   <div class="row input_fields">
+                        <div class="col-3 labels">
+                            DOB
+                        </div>
+                        <div class="col-9 form-group">
+                            <input type="datetime" class="form-control" formControlName="dob" maxLength="10"
+                                [ngClass]="{'is-invalid':form.get('dob').touched && form.get('dob').invalid}"
+                                required />
+                            <div *ngIf="form.get('dob').touched && form.get('dob').invalid"
+                                class="invalid-feedback">
+                                <div *ngIf="form.get('dob').errors.required">dob is required</div>
+                                <div *ngIf="form.get('dob').errors.minlength">dob must be atleast of 10 charactors
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div>
+                        <br>
+                        <button mat-raised-button color="primary" [disabled]="form.invalid"
+                            (click)="onSubmit()">Update</button>
+                        <br>
+                    </div>
+                </form>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Institution Details
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type your Institutional Details
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <form name="form" [formGroup]="Inst_form">
+                    <div class="row input_fields">
+                        <div class="col-3 labels">
+                            Institution
+                        </div>
+                        <div class="col-9 form-group">
+                            <input type="text" class="form-control" formControlName="institution"
+                                [ngClass]="{'is-invalid':Inst_form.get('institution').touched && Inst_form.get('institution').invalid}"
+                                required />
+                            <div class="invalid-feedback">
+                                <div>institution is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row input_fields">
+                        <div class="col-3 labels">
+                            Course
+                        </div>
+                        <div class="col-9 form-group">
+                            <input type="text" class="form-control" formControlName="course"
+                                [ngClass]="{'is-invalid':Inst_form.get('course').touched && Inst_form.get('course').invalid}"
+                                required />
+                            <div class="invalid-feedback">
+                                <div>course is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button mat-raised-button color="primary" [disabled]="form.invalid"
+                        (click)="onSubmitInst()">Submit</button>
+                </form>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+
+        <!--  <div class="form-group">
+                <input type="password" class="form-control" formControlName="password" placeholder="Password"
+                    minlength="8" maxlength="16"
+                    [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" />
+                <div *ngIf="form.get('password').touched && form.get('password').invalid" class="invalid-feedback">
+                    <div *ngIf="form.get('password').errors.required">Password is required</div>
+                    <div *ngIf="form.get('password').errors.minlength">Password must be atleast of 8 charactors</div>
+                    <div *ngIf="form.get('password').errors.maxlength">Password must be of max 16 charactors</div>
+                </div>
+            </div> -->
+
+    </mat-card>
+</div>

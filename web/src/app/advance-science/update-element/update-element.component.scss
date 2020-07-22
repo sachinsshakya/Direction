@@ -1,0 +1,28 @@
+.cancle{
+    background-color: #343A40;
+    margin: 5px;
+    color: white;
+}
+.submit{
+    background-color: #343A40;
+    color: white;
+    width: 100%;
+} 
+::ng-deep.mat-dialog-container{
+    border-radius: 15px !important;
+    padding: 0px !important;
+}
+.close_button{
+    text-align: right;
+    cursor: pointer;
+}
+.main_container{
+    padding: 15px;
+}
+button:disabled {
+    cursor: not-allowed;
+  }
+.mat-raised-button[disabled]{
+    background-color: #343A40;
+    color: white;
+ }

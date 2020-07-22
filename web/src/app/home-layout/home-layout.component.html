@@ -1,0 +1,109 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <h1>DirecTions</h1>
+    <div class="example-fill-remaining-space"></div>
+    <img src="assets/images/directions.jpg" class="toolbar-logo">
+</nav>
+<mat-toolbar color="primary" class="mat-toolbar z-depth-2 " id="navbar">
+    <span class="username">{{username | uppercase}}</span>
+    <div id="mySidenav" class="sidenav">
+        <a class="closebtn" (click)="closeNav()">&times;</a>
+        <a routerLink="/home" routerLinkActive="active" (click)="closeNav()">Home</a>
+        <a routerLink="/physics" routerLinkActive="active" (click)="closeNav()">Physics</a>
+        <a routerLink="/chemistry" routerLinkActive="active" (click)="closeNav()">Chemistry</a>
+        <a routerLink="/biology" routerLinkActive="active" (click)="closeNav()">Biology</a>
+        <a routerLink="/advance" routerLinkActive="active" (click)="closeNav()">Advance Science</a>
+        <a routerLink="/profile" routerLinkActive="active" (click)="closeNav()">Profile</a>
+        <a routerLink="/contact" routerLinkActive="active" (click)="closeNav()">Contact</a>
+    </div>
+    <button class="toggle" mat-icon-button (click)="openNav()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span class="example-fill-remaining-space"></span>
+    <span class="menubutton">
+        <button mat-button routerLink="/home" routerLinkActive="active">Home</button>
+    </span>
+    <span class="menubutton">
+        <button mat-button routerLink="/physics" routerLinkActive="active">Physics</button>
+    </span>
+    <span class="menubutton">
+        <button mat-button routerLink="/chemistry" routerLinkActive="active">Chemistry</button>
+    </span>
+    <span class="menubutton">
+        <button mat-button routerLink="/biology" routerLinkActive="active">Biology</button>
+    </span>
+    <span class="menubutton">
+        <button mat-button routerLink="/advance" routerLinkActive="active">Advance Science</button>
+    </span>
+    <span class="menubutton">
+        <button mat-button routerLink="/profile" routerLinkActive="active">Profile</button>
+    </span>
+    <span class="menubutton">
+        <button mat-button routerLink="/contact" routerLinkActive="active">Contact Us</button>
+    </span>
+    <span class="example-fill-remaining-space"></span>
+    <button mat-mini-fab color="warn" class="logout_button" matTooltip="Logout" (click)="openDialog()">
+        <mat-icon>power_settings_new</mat-icon>
+    </button>
+</mat-toolbar>
+<!-- <mat-toolbar class="toolbar z-depth-2 p-0" color="white">
+    <mat-toolbar-row class="minitoolbar">
+        <h1>DirecTions</h1>
+        <div class="example-fill-remaining-space"></div>
+        <img src="assets/images/directions.jpg" class="toolbar-logo">
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <div class="toolbartext">
+            <span class="dropdownmenuButton">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" class="dropdownMenu">
+                    <span>
+                        <button mat-menu-item routerLink="/home" routerLinkActive="active">Home</button>
+                    </span>
+                    <span>
+                        <button mat-menu-item routerLink="/physics" routerLinkActive="active">Physics</button>
+                    </span>
+                    <span>
+                        <button mat-menu-item routerLink="/chemistry" routerLinkActive="active">Chemistry</button>
+                    </span>
+                    <span>
+                        <button mat-menu-item routerLink="/biology" routerLinkActive="active">Biology</button>
+                    </span>
+                    <span>
+                        <button mat-menu-item>About Us</button>
+                    </span>
+                </mat-menu>
+            </span>
+            <span class="menubutton">
+                <button mat-button routerLink="/home" routerLinkActive="active">Home</button>
+            </span>
+            <span class="menubutton">
+                <button mat-button routerLink="/physics" routerLinkActive="active">Physics</button>
+            </span>
+            <span class="menubutton">
+                <button mat-button routerLink="/chemistry" routerLinkActive="active">Chemistry</button>
+            </span>
+            <span class="menubutton">
+                <button mat-button routerLink="/biology" routerLinkActive="active">Biology</button>
+            </span>
+            <span class="menubutton">
+                <button mat-button routerLink="/advance" routerLinkActive="active">Advance Science</button>
+            </span>
+            <span class="menubutton">
+                    <button mat-button>About Us</button>
+                </span>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar> -->
+
+<router-outlet></router-outlet>
+
+<!-- <div class="footer-bottom">
+    &copy; directions.com | Designed by Sachin Singh
+</div> -->
+
+
+
+
+<!-- routerLink="/logout" routerLinkActive="active" -->
