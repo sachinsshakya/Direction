@@ -125,8 +125,8 @@ router.get('/element', (req, res) => {
 router.post('/users/element', (req, res) => {
     var newElement = new element();
     newElement.name = req.body.name;
-    newElement.weight = req.body.Weight;
-    newElement.symbol = req.body.Symbol;
+    newElement.weight = req.body.weight;
+    newElement.symbol = req.body.symbol;
     newElement.status = 'active';
     console.log(newElement.name, newElement.weight, newElement.symbol);
     newElement.save((err, insertedElement) => {
